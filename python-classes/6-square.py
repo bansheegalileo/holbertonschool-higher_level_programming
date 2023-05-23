@@ -8,23 +8,24 @@ class Square:
         Attributes:
             size (int): sq size
     """
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """
-        inits square
+        inits the sq
         Args:
             size (int): sq side size
-
+            postion(tuple): 2d sq posit
         Returns:
             None
         """
         self.size = size
+        self.position = position
 
     def area(self):
         """
         set squarea
 
         Return:
-            the current squarea (int)
+            current squarea (int)
         """
         return self.__size ** 2
 
@@ -41,10 +42,10 @@ class Square:
     @size.setter
     def size(self, value):
         """
-        setter of size
+        Setter of size
 
         Args:
-            size (int): sq side size
+            value (int): sq side size
         Raises
             TypeError: size not int
             ValueError: size less than 0
@@ -54,7 +55,7 @@ class Square:
         if type(value) is not int:
             raise TypeError("size must be an integer")
         elif value < 0:
-                raise ValueError("size must be >= 0")
+            raise ValueError("size must be >= 0")
         else:
             self.__size = value
 
@@ -65,16 +66,18 @@ class Square:
         Returns:
             None
         """
-        if self.__size == 0:
+        if self.size == 0:
             print()
         else:
-            for x in range(self.size):
-                    print("#" * self.size)
+            print('\n'*self.__position[1], end='')
+            for i in range(0, self.__size):
+                print(' '*self.__position[0], end='')
+                print('#'*self.__size)
 
     @property
     def position(self):
         """
-        get posit attr
+        get posit attrbt
         """
         return self.__position
 
@@ -83,7 +86,7 @@ class Square:
         """
             setter of posit
         Args:
-            value (tuple): position of the square in 2D space
+            value (tuple): 2d post of sq
         Returns:
             None
         """
