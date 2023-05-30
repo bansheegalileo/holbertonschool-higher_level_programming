@@ -8,7 +8,6 @@ class BaseGeometry():
     """
         BaseGeometry cl
     """
-    
     def area(self):
         """
             public instance
