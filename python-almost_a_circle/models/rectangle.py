@@ -18,8 +18,10 @@ class Rectangle(Base):
         Args:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
-            x (int, optional): The x-coordinate of the rectangle's position. Defaults to 0.
-            y (int, optional): The y-coordinate of the rectangle's position. Defaults to 0.
+            x (int, optional): The x-coordinate of the rectangle's position.
+                Defaults to 0.
+            y (int, optional): The y-coordinate of the rectangle's position.
+                Defaults to 0.
             id (int, optional): The ID of the rectangle. Defaults to None.
         """
         super().__init__(id)
@@ -133,3 +135,71 @@ class Rectangle(Base):
 
         if value < 0 and param in ("x", "y"):
             raise ValueError(f"{param} must be >= 0")
+
+    def area(self):
+        """
+        Computes the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """
+        Displays the rectangle using the '#' character.
+        """
+        if self.__y > 0:
+            print("\n" * self.__y, end="")
+
+        for _ in range(self.__height):
+            if self.__x > 0:
+                print(" " * self.__x, end="")
+            print("#" * self.__width)
+
+    def __str__(self):
+        """
+        Returns a string representation of the rectangle.
+
+        Returns:
+            str: The string representation of the rectangle.
+        """
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+
+    def update(self, *args, **kwargs):
+        """
+        Updates the attributes of the rectangle.
+
+        Args:
+            *args: Variable length argument list of values in the order:
+                id, width, height, x, y.
+            **kwargs: Arbitrary keyword arguments for attribute updates.
+        """
+        attrs = ["id", "width", "height", "x", "y"]
+        num_args = len(args)
+
+        if num_args > len(attrs):
+            num_args = len(attrs)
+
+        if num_args > 0:
+            for i in range(num_args):
+                setattr(self, attrs[i], args[i])
+        elif kwargs:
+            for key, value in kwargs.items():
+                if key in attrs:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Converts the rectangle object to a dictionary representation.
+
+        Returns:
+            dict: The dictionary representation of the rectangle.
+        """
+        return {
+            "id": self.id,
+            "width": self.__width,
+            "height": self.__height,
+            "x": self.__x,
+            "y": self.__y,
+        }
