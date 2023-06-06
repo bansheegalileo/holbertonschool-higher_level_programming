@@ -89,7 +89,7 @@ class Rectangle(Base):
         Setter for the x-coordinate attribute.
 
         Args:
-            value (int): The new value for the x-coordinate of the rectangle's position.
+            value (int): new x coord pos val
         """
         self.check_integer_parameter(value, "x")
         self.__x = value
@@ -110,7 +110,7 @@ class Rectangle(Base):
         Setter for the y-coordinate attribute.
 
         Args:
-            value (int): The new value for the y-coordinate of the rectangle's position.
+            value (int): new val for y val pos
         """
         self.check_integer_parameter(value, "y")
         self.__y = value
@@ -164,7 +164,12 @@ class Rectangle(Base):
         Returns:
             str: The string representation of the rectangle.
         """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return (
+        f"[Rectangle] ({self.id}) "
+        f"{self.__x}/{self.__y} - "
+        f"{self.__width}/{self.__height}"
+        )
+
 
     def update(self, *args, **kwargs):
         """
