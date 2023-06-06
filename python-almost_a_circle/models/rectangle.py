@@ -65,6 +65,17 @@ class Rectangle(Base):
         self.__y = param
 
     def check_integer_parameter(self, value, param):
+        """
+        Check if the value is an integer and meets specific constraints.
+
+        Args:
+            value (int): The value to check.
+            param (str): The parameter name being checked.
+
+        Raises:
+            TypeError: If the value is not an integer.
+            ValueError: If the value doesn't meet the specified constraints.
+        """
         if type(value) is not int:
             raise TypeError(param + ' must be an integer')
 
