@@ -20,7 +20,12 @@ class Square(Rectangle):
             x (int): The x-coordinate of the square's position.
             y (int): The y-coordinate of the square's position.
             id (int): The unique identifier of the square.
+
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is not positive.
         """
+        self.size = size
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
