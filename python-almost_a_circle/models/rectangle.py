@@ -176,7 +176,7 @@ class Rectangle(Base):
 
         Args:
             *args: Positional arguments.
-            **kwargs: Key-value arguments representing attributes of the Rectangle.
+            **kwargs: Key-val args representing attr of the Rectangle.
         """
         if len(args) > 0:
             self.id = args[0]
