@@ -160,7 +160,7 @@ class Rectangle(Base):
     def __str__(self):
         """
         Returns a string representation of the rectangle.
- 
+
         Returns:
             str: The string representation of the rectangle.
         """
@@ -168,8 +168,7 @@ class Rectangle(Base):
                 "{}/{} - {}/{}".format(
                     self.__x, self.__y, self.__width, self.__height
                 )
-        )
-
+            )
 
     def update(self, *args, **kwargs):
         """
