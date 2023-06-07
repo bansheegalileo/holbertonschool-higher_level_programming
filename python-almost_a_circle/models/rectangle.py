@@ -157,19 +157,19 @@ class Rectangle(Base):
                 print(" " * self.__x, end="")
             print("#" * self.__width)
 
-    def __str__(self):
-        """
-        Returns a string representation of the rectangle.
+def __str__(self):
+    """
+    Returns a string representation of the rectangle.
 
-        Returns:
-            str: The string representation of the rectangle.
-        """
-        return (
-        f"[Rectangle] ({self.id}) "
-        f"{self.__x}/{self.__y} - "
-        f"{self.__width}/{self.__height}"
+    Returns:
+        str: The string representation of the rectangle.
+    """
+    return (
+        "[Rectangle] ({}) "
+        "{}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height
         )
-
+    )
 
     def update(self, *args, **kwargs):
         """
