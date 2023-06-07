@@ -26,10 +26,11 @@ class Rectangle(Base):
         """
         super().__init__(id)
 
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
+
 
     @property
     def width(self):
@@ -158,19 +159,19 @@ class Rectangle(Base):
             print("#" * self.__width)
 
 
-def __str__(self):
-    """
-    Returns a string representation of the rectangle.
+    def __str__(self):
+        """
+        Returns a string representation of the rectangle.
 
-    Returns:
-        str: The string representation of the rectangle.
-    """
-    return (
-        "[Rectangle] ({}) "
-        "{}/{} - {}/{}".format(
-            self.id, self.__x, self.__y, self.__width, self.__height
-        )
-    )
+        Returns:
+            str: The string representation of the rectangle.
+        """
+        return (
+            "[Rectangle] ({}) ".format(self.id)
+            + "{}/{} - {}/{}".format(
+                self.__x, self.__y, self.__width, self.__height
+                )
+            )
 
     def update(self, *args, **kwargs):
         """
