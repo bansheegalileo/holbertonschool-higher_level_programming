@@ -31,7 +31,6 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-
     @property
     def width(self):
         """
@@ -158,7 +157,6 @@ class Rectangle(Base):
                 print(" " * self.__x, end="")
             print("#" * self.__width)
 
-
     def __str__(self):
         """
         Returns a string representation of the rectangle.
@@ -169,8 +167,7 @@ class Rectangle(Base):
         return (
             "[Rectangle] ({}) ".format(self.id)
             + "{}/{} - {}/{}".format(
-                self.__x, self.__y, self.__width, self.__height
-                )
+                self.__x, self.__y, self.__width, self.__height)
             )
 
     def update(self, *args, **kwargs):
