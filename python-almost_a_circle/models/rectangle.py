@@ -170,28 +170,24 @@ class Rectangle(Base):
                 )
                 )
 
-    def update(self, *args, **kwargs):
+    def update(self, *args):
         """
-        Updates the attributes of the rectangle.
+        Assigns arguments to each attribute of the Rectangle.
 
         Args:
-            *args: Variable length argument list of values in the order:
-                id, width, height, x, y.
-            **kwargs: Arbitrary keyword arguments for attribute updates.
+            *args: Arguments to be assigned to the attributes.
+                The order of arguments should be id, width, height, x, y.
         """
-        attrs = ["id", "width", "height", "x", "y"]
-        num_args = len(args)
-
-        if num_args > len(attrs):
-            num_args = len(attrs)
-
-        if num_args > 0:
-            for i in range(num_args):
-                setattr(self, attrs[i], args[i])
-        elif kwargs:
-            for key, value in kwargs.items():
-                if key in attrs:
-                    setattr(self, key, value)
+        if len(args) > 0:
+            self.id = args[0]
+        if len(args) > 1:
+            self.width = args[1]
+        if len(args) > 2:
+            self.height = args[2]
+        if len(args) > 3:
+            self.x = args[3]
+        if len(args) > 4:
+            self.y = args[4]
 
     def to_dictionary(self):
         """
