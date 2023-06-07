@@ -22,10 +22,11 @@ class Square(Rectangle):
             id (int): The unique identifier of the square.
 
         Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is not positive.
+            TypeError: If size or x is not an integer.
+            ValueError: If size is not positive or x is negative.
         """
         self.size = size
+        self.x = x
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
