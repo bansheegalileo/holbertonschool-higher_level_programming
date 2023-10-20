@@ -1,4 +1,4 @@
--- Prints the description of the table first_table from the database hbtn_0c_0.
-SELECT CONCAT('Table   Create Table\n', TABLE_NAME, '     ', CREATE_TABLE)
-FROM INFORMATION_SCHEMA.TABLES
+-- Prints the description of first_table from the database hbtn_0c_0.
+SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, COLUMN_DEFAULT, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_SCHEMA = 'hbtn_0c_0' AND TABLE_NAME = 'first_table';
