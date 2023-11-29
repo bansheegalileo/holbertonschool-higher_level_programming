@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
-function add(a, b) {
-    return a + b;
+function add (a, b) {
+  return a + b;
 }
 
 const argument1 = process.argv[2];
@@ -11,8 +11,8 @@ const num1 = parseInt(argument1);
 const num2 = parseInt(argument2);
 
 if (!isNaN(num1) && !isNaN(num2)) {
-    const result = add(num1, num2);
-    console.log(result);
+  const result = add(num1, num2);
+  console.log(result);
 } else {
-    console.log("Invalid input. Please provide two integers.");
+  console.log('Invalid input. Please provide two integers.');
 }
