@@ -9,4 +9,4 @@ module.exports = class Sixquare extends Square {
       console.log(printChar.repeat(this.width));
     }
   }
-}
+};
