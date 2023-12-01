@@ -2,7 +2,7 @@
 
 const request = require('request');
 
-function getStarWarsMovieTitle(movieId) {
+function getStarWarsMovieTitle (movieId) {
   const apiUrl = `https://swapi-api.hbtn.io/api/films/${movieId}`;
 
   request(apiUrl, (error, response, body) => {
