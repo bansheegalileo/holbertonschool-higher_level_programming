@@ -2,7 +2,32 @@
 
 const request = require('request');
 
-let url = 'http://swapi.co/api/films/' + process.argv[2];
-request(url, function (error, response, body) {
-  console.log(error || JSON.parse(body).title);
-});
+function getStarWarsMovieTitle(movieId) {
+  const apiUrl = `https://swapi-api.hbtn.io/api/films/${movieId}`;
+
+  request(apiUrl, (error, response, body) => {
+    if (error) {
+      console.error('Error:', error);
+      return;
+    }
+
+    if (response.statusCode !== 200) {
+      console.error(`Error: ${response.statusCode} - ${response.statusMessage}`);
+      return;
+    }
+
+    const movieData = JSON.parse(body);
+    const { title, episode_id } = movieData;
+    console.log(`Episode ${episode_id}: ${title}`);
+  });
+}
+
+const args = process.argv.slice(2);
+
+if (args.length !== 1) {
+  console.error('Usage: node script.js <movie_id>');
+  process.exit(1);
+}
+
+const movieId = args[0];
+getStarWarsMovieTitle(movieId);
